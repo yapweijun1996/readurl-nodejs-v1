@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const readBtn = document.getElementById('read-btn');
     const urlInput = document.getElementById('url-input');
     const statusDiv = document.getElementById('status');
-    const contentDisplay = document.getElementById('content-display');
     const jsonOutput = document.getElementById('json-output');
     const filterSelect = document.getElementById('filter-select');
 
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         statusDiv.textContent = 'Processing...';
-        contentDisplay.value = '';
         jsonOutput.value = '';
 
         try {
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const data = await response.json();
-            contentDisplay.value = data.content;
             jsonOutput.value = JSON.stringify(data, null, 2);
             statusDiv.textContent = 'Processing complete.';
         } catch (error) {
